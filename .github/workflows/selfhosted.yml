@@ -202,7 +202,7 @@ jobs:
         echo "LOCAL_MANIFEST=$LOCAL_MANIFEST" >> "$GITHUB_ENV"
         echo "LOCAL_MANIFEST=$LOCAL_MANIFEST" >> "$GITHUB_OUTPUT"
       env:
-        privateToken: ${{ env.REPO_TOKEN }}
+        privateToken: ${{ vars.REPO_TOKEN }}
 
     - name: Display Run Parameters # Credit to azwhikaru for this part
       run: |
