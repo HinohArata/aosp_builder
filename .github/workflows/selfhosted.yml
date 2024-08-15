@@ -289,7 +289,7 @@ jobs:
         if [ "${{ github.event.inputs.BUILD_DIFFERENT_ROM }}" == "echo 'Build Starting!'" ]; then
           $REPO_INIT
         else
-          repo init --depth=1 -u https://$privateToken@github.com/HinohArata/ros_staging -b fourteen --git-lfs
+          ${{ github.event.inputs.BUILD_DIFFERENT_ROM }}
         fi 
 
         bash -c "$LOCAL_MANIFEST"
