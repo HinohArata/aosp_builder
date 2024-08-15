@@ -29,7 +29,7 @@ on:
       BUILD_DIFFERENT_ROM:
         description: "Command to initialize a different 'repo' project:"
         required: false
-        default: 'repo init -u --depth=1 https://${privateToken}github.com/HinohArata/ros_staging -b fourteen --git-lfs'
+        default: 'repo init --depth=1 -u https://${privateToken}github.com/HinohArata/ros_staging -b fourteen --git-lfs'
       REMOVALS:
         description: "Folders to be removed before syncing:"
         required: false
@@ -288,7 +288,7 @@ jobs:
         if [ "${{ github.event.inputs.BUILD_DIFFERENT_ROM }}" == "echo 'Build Starting!'" ]; then
           $REPO_INIT
         else
-          ${{ github.event.inputs.BUILD_DIFFERENT_ROM }}
+          repo init --depth=1 -u https://$privateToken@github.com/HinohArata/ros_staging -b fourteen --git-lfs
         fi 
 
         bash -c "$LOCAL_MANIFEST"
@@ -297,6 +297,8 @@ jobs:
         du -csh . # Output Size when done
         rm -rf .repo
       timeout-minutes: 10
+      env:
+        privateToken: ${{ secrets.PRIVATE_TOKEN }}
     outputs:
       PROJECTFOLDER: ${{ needs.prepare.outputs.PROJECTFOLDER }}
       PROJECTID: ${{ needs.prepare.outputs.PROJECTID }}
