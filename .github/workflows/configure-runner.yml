@@ -56,4 +56,3 @@ jobs:
         fi
         cd actions-runner
          ./config.sh --url "https://github.com/${{ github.repository }}" --token ${{ inputs.RUNNER_TOKEN }}"
-         ./run.sh
