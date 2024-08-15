@@ -29,7 +29,7 @@ on:
       BUILD_DIFFERENT_ROM:
         description: "Command to initialize a different 'repo' project:"
         required: false
-        default: 'https://"$privateToken"@github.com/HinohArata/ros_staging'
+        default: 'https://${privateToken}github.com/HinohArata/ros_staging'
       REMOVALS:
         description: "Folders to be removed before syncing:"
         required: false
@@ -202,7 +202,7 @@ jobs:
         echo "LOCAL_MANIFEST=$LOCAL_MANIFEST" >> "$GITHUB_ENV"
         echo "LOCAL_MANIFEST=$LOCAL_MANIFEST" >> "$GITHUB_OUTPUT"
       env:
-        privateToken: ${{ vars.REPO_TOKEN }}
+        privateToken: ${{ vars.PUNYAKU }}
 
     - name: Display Run Parameters # Credit to azwhikaru for this part
       run: |
