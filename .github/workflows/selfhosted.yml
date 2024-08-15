@@ -29,14 +29,14 @@ on:
       BUILD_DIFFERENT_ROM:
         description: "Command to initialize a different 'repo' project:"
         required: false
-        default: 'https://"$privateToken"@github.com/HinohArata/local_manifests'
+        default: 'https://"$privateToken"@github.com/HinohArata/ros_staging'
       REMOVALS:
         description: "Folders to be removed before syncing:"
         required: false
       LOCAL_MANIFEST:
         description: "Personal local manifest [repository or raw]:"
         required: true
-        default: 'https://"$privateToken"@github.com/HinohArata/local_manifests'
+        default: 'https://github.com/HinohArata/local_manifests'
       LOCAL_MANIFEST_BRANCH:
         description: "Personal local manifest's branch:"
         required: false
