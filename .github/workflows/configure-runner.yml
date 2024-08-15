@@ -55,4 +55,4 @@ jobs:
             echo "Runner token found"
         fi
         cd actions-runner
-         ./config.sh --unattended --url "https://github.com/${{ github.repository }}" --token "${{ inputs.RUNNER_TOKEN }}""
+         ./config.sh --unattended --url "https://github.com/${{ github.repository }}" --token "${{ inputs.RUNNER_TOKEN }}"
