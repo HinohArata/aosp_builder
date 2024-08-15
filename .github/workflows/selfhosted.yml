@@ -33,6 +33,7 @@ on:
       REMOVALS:
         description: "Folders to be removed before syncing:"
         required: false
+        default: ".repo/local_manifests"
       LOCAL_MANIFEST:
         description: "Personal local manifest [repository or raw]:"
         required: true
