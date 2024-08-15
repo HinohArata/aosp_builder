@@ -29,7 +29,7 @@ on:
       BUILD_DIFFERENT_ROM:
         description: "Command to initialize a different 'repo' project:"
         required: false
-        default: 'https://${privateToken}github.com/HinohArata/ros_staging'
+        default: 'repo init -u --depth=1 https://${privateToken}github.com/HinohArata/ros_staging -b fourteen --git-lfs'
       REMOVALS:
         description: "Folders to be removed before syncing:"
         required: false
