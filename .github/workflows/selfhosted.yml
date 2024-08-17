@@ -29,7 +29,7 @@ on:
       BUILD_DIFFERENT_ROM:
         description: "Command to initialize a different 'repo' project:"
         required: false
-        default: 'sudo apt install gh && gh auth login --with-token < ghtoken.txt; repo init -u https://github.com/RisingOS-staging/android.git -b fourteen --git-lfs --depth=1'
+        default: 'repo init --depth=1 -u git@github.com:HinohArata/ros_staging.git -b tes --git-lfs'
       REMOVALS:
         description: "Folders to be removed before syncing:"
         required: false
@@ -287,6 +287,7 @@ jobs:
           $REPO_INIT
         else
           echo "${{ secrets.GH_AUTH }}" > ghtoken.txt
+          gh auth login --with-token < ghtoken.txt
           ${{ github.event.inputs.BUILD_DIFFERENT_ROM }}
         fi 
 
