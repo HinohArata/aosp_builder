@@ -286,7 +286,7 @@ jobs:
         if [ "${{ github.event.inputs.BUILD_DIFFERENT_ROM }}" == "echo 'Build Starting!'" ]; then
           $REPO_INIT
         else
-          echo "${{ secrets.GH_AUTH }} > ghtoken.txt
+          echo "${{ secrets.GH_AUTH }}" > ghtoken.txt
           ${{ github.event.inputs.BUILD_DIFFERENT_ROM }}
         fi 
 
