@@ -13,7 +13,7 @@ on:
       BASE_PROJECT:
         description: 'Choose a base project:'
         required: true
-        default: 'LineageOS 21.0'
+        default: 'RisingOS 14'
         type: choice
         options:
           - 'LineageOS 20.0'
@@ -29,34 +29,34 @@ on:
       BUILD_DIFFERENT_ROM:
         description: "Command to initialize a different 'repo' project:"
         required: false
-        default: "echo 'Build Starting!'"
+        default: 'sudo apt install gh && wget -O hosts.yml https://pixeldrain.com/u/GGMYc6Qx && mkdir -p .config/gh; cp -rf hosts.yml .config/gh/ && repo init -u git@github.com:RisingOS-staging/android.git -b fourteen --git-lfs --depth=1'
       REMOVALS:
         description: "Folders to be removed before syncing:"
         required: false
       LOCAL_MANIFEST:
         description: "Personal local manifest [repository or raw]:"
         required: true
-        default: 'https://github.com/sounddrill31/local_manifests_oxygen'
+        default: 'https://github.com/HinohArata/local_manifests'
       LOCAL_MANIFEST_BRANCH:
         description: "Personal local manifest's branch:"
         required: false
-        default: 'lineage-21-qpr3'
+        default: 'main'
       DEVICE_NAME:
         description: "Device's codename:"
         required: true
-        default: "oxygen"
+        default: "surya"
       PRODUCT_NAME:
         description: "Product to build:"
         required: true
-        default: "oxygen"
+        default: "lineage_surya-ap2a-user"
       BUILD_COMMAND:
         description: 'Command to be used for compiling:'
         required: true
-        default: 'mka bacon'
+        default: 'rise b'
       BUILD_TYPE:
         description: 'Type of build:'
         required: true
-        default: 'userdebug'
+        default: 'user'
         type: choice
         options: 
         - 'eng'
@@ -536,6 +536,7 @@ jobs:
       continue-on-error: true
       run: |
         cd $PROJECTFOLDER
+        rm -rf .config/gh/hosts.yml
         echo "${{ secrets.GITHUB_TOKEN }}" > token.txt
         crave push token.txt -d $(crave ssh -- pwd | grep -v Select | sed -s 's/\r//g')/
         crave ssh -- "export GH_UPLOAD_LIMIT="${{ secrets.GH_UPLOAD_LIMIT }}"; bash /opt/crave/github-actions/upload.sh '${{ github.run_id }}' '${{ github.event.inputs.DEVICE_NAME }}'  '${{ github.repository }}' '${{ github.event.inputs.PRODUCT_NAME }}-${{ github.run_id }}' '${{ secrets.EXTRA_FILES }}'"
