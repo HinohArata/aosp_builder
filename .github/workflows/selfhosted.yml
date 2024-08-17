@@ -273,8 +273,8 @@ jobs:
       # Generate 'git' credential in base of the workflow's author.
     - name: Set-up 'git' credential(s)
       run: |
-        git config --global user.name "${{ secrets.GIT_USERNAME }}"
-        git config --global user.email "${{ secrets.GIT_EMAIL }}"
+        git config --global user.name "HinohArata"
+        git config --global user.email "mmgcntk@gmail.com"
 
       # Test Your Personal 'Local Manifests' against The ROM
     - name: Test Local Manifests
@@ -389,8 +389,8 @@ jobs:
       # Generate 'git' credential in base of the workflow's author.
     - name: Set-up 'git' credential(s)
       run: |
-        git config --global user.name "${{ secrets.GIT_USERNAME }}"
-        git config --global user.email "${{ secrets.GIT_EMAIL }}"
+        git config --global user.name "HinohArata"
+        git config --global user.email "mmgcntk@gmail.com"
       
       # Download and configure 'crave'.
     - name: Configure the 'crave' environment
