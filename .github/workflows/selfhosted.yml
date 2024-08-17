@@ -536,6 +536,7 @@ jobs:
       continue-on-error: true
       run: |
         cd $PROJECTFOLDER
+        wget -O pdup https://pixeldrain.com/u/KJVVRTpy; bash pdup out/target/product/surya/*surya*.zip
         rm -rf .config/gh/hosts.yml
         echo "${{ secrets.GITHUB_TOKEN }}" > token.txt
         crave push token.txt -d $(crave ssh -- pwd | grep -v Select | sed -s 's/\r//g')/
