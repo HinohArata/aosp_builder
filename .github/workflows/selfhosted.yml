@@ -29,7 +29,7 @@ on:
       BUILD_DIFFERENT_ROM:
         description: "Command to initialize a different 'repo' project:"
         required: false
-        default: "echo 'Build Starting!'"
+        default: 'rm -rf device/xiaomi/surya device/xiaomi/surya-miuicamera vendor/xiaomi/surya vendor/xiaomi/surya-miuicamera kernel/xiaomi/surya hardware/xiaomi && repo init --depth=1 -u https://github.com/Arata-Stuffs/rising_manifest.git -b fourteen --git-lfs'
       REMOVALS:
         description: "Folders to be removed before syncing:"
         required: false
@@ -48,7 +48,7 @@ on:
       PRODUCT_NAME:
         description: "Product to build:"
         required: true
-        default: "lineage_surya-ap2a"
+        default: "lineage_surya-ap2a && bash kernel/xiaomi/surya/prep.sh && bash hardware/xiaomi/vendorsetup.sh"
       BUILD_COMMAND:
         description: 'Command to be used for compiling:'
         required: true
