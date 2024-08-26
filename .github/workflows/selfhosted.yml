@@ -48,11 +48,11 @@ on:
       PRODUCT_NAME:
         description: "Product to build:"
         required: true
-        default: "lineage_surya-ap2a && bash kernel/xiaomi/surya/prep.sh && bash hardware/xiaomi/vendorsetup.sh"
+        default: "lineage_surya-ap2a"
       BUILD_COMMAND:
         description: 'Command to be used for compiling:'
         required: true
-        default: 'rise b'
+        default: 'bash kernel/xiaomi/surya/prep.sh && bash hardware/xiaomi/vendorsetup.sh && rise b'
       BUILD_TYPE:
         description: 'Type of build:'
         required: true
