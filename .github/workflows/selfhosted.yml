@@ -545,12 +545,12 @@ jobs:
       run: |
         cd $PROJECTFOLDER
         echo "Uploading to devuploads now"
-        if bash <(curl -s https://devuploads.com/upload.sh) -f out/target/product/surya/RisingOS-5.0-FINAL*ota.zip -k ${{ secrets.DevApiKey }}; then
+        if bash <(curl -s https://devuploads.com/upload.sh) -f out/target/product/surya/RisingOS-5.0-FINAL*ota.zip -k ${{ secrets.DEVAPIKEY }}; then
             echo "Uploading to DevUploads Successfull"
         else
             echo "Upload to DevUploads failed!"
         fi
-        if bash <(curl -s https://devuploads.com/upload.sh) -f out/target/product/surya/*.json -k ${{ secrets.DevApiKey }}; then
+        if bash <(curl -s https://devuploads.com/upload.sh) -f out/target/product/surya/*.json -k ${{ secrets.DEVAPIKEY }}; then
             echo "Uploading json to DevUploads Successfull"
         else
             echo "Upload json to DevUploads failed!"
